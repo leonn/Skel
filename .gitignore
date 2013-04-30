@@ -13,5 +13,5 @@
 *.a
 
 # The binary file and the build folder
-ClickColor
+Skel
 build/
