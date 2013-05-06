@@ -1,9 +1,12 @@
 #include "game.h"
 
+//TESTE
+#include "gui.h"
+
 Game::Game(){
 	SDL_Init(SDL_INIT_EVERYTHING);
 	this->screen = SDL_SetVideoMode(SCREEN_W,SCREEN_H,SCREEN_BPP,SDL_SWSURFACE);
-	SDL_WM_SetCaption("ClickColor",NULL);
+	SDL_WM_SetCaption("Skel",NULL);
 
 	this->running = true;
 }
@@ -13,6 +16,13 @@ Game::~Game(){
 }
 
 void Game::run(){
+	//BLOCO DE TESTE de renderização de texto
+
+	Gui* gui;
+	gui = new Gui();
+
+	//FIM DO BLOCO DE TESTE
+
 	while(this->running){
 		//Events
 		while(SDL_PollEvent(&this->events)){
@@ -23,9 +33,9 @@ void Game::run(){
 			}
 		}
 		//Logic
-
+		gui->update();//teste
 		//Render
-
+		gui->draw();//teste
 		//FPS control
 	}
 }
