@@ -18,6 +18,8 @@ Game::Game(){
 
 Game::~Game(){
 	SDL_FreeSurface(this->screen);
+	TTF_Quit();
+	SDL_Quit();
 }
 
 void Game::run(){
