@@ -35,8 +35,9 @@ void Game::run(){
 	box.w = 200;
 	box.h = 100;
 	SDL_Color _color = {0,0,0};
-	TTF_Font* font = TTF_OpenFont("data/Arista.ttf",20);
-
+	TTF_Font* font = TTF_OpenFont("UbuntuMono-B.ttf",20);
+	if (font == NULL)
+		cout << "failed" << endl;
 	textSurface = TTF_RenderText_Solid(font,text.c_str(),_color);
 	// textSurface = carregaImagem("data/botao_sair.png");
 	//FIM DO BLOCO DE TESTE
