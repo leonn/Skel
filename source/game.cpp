@@ -1,9 +1,17 @@
 #include "game.h"
 
+#include <iostream>
+using namespace std;
+
 Game::Game(){
-	SDL_Init(SDL_INIT_EVERYTHING);
+	if(SDL_Init(SDL_INIT_EVERYTHING) == -1)
+		cout << "SDL not initialized." << endl;
+	
+	if(TTF_Init() == -1)
+		cout << "TTF not initialized." << endl;
+
 	this->screen = SDL_SetVideoMode(SCREEN_W,SCREEN_H,SCREEN_BPP,SDL_SWSURFACE);
-	SDL_WM_SetCaption("ClickColor",NULL);
+	SDL_WM_SetCaption("Skel",NULL);
 
 	this->running = true;
 }
