@@ -13,14 +13,17 @@ Gui::Gui(){
 	this->box.w = 200;
 	this->box.h = 100;
 	this->fontsize = 12;
-	this->color = {255,255,255,0};
-	this->text = "teste";
-	this->font = TTF_OpenFont("data/Arista.ttf",fontsize);
+	SDL_Color _color = {0xff,0xff,0xff};
+	this->color = _color;
+	// this->text = "teste";
+	sprintf(this->text,"%d",10); //escrevendo o texto
+	this->font = TTF_OpenFont("Arista.ttf",20);
 //FIM TESTE
 
 	
 
 	this->renderType = SOLID;
+	this->image = TTF_RenderText_Solid(this->font,this->text,this->color);
 }
 
 Gui::~Gui(){
@@ -32,17 +35,17 @@ void Gui::draw(){
 }
 
 void Gui::update(){
-	switch(this->renderType){
-		case SOLID:
-			this->image = TTF_RenderText_Solid(this->font,this->text,this->color);
-		break;
-		case SHADED:
-			this->image = TTF_RenderText_Shaded(this->font,this->text,this->color,this->shadedColor);
-		break;
-		case BLENDED:
-			this->image = TTF_RenderText_Blended(this->font,this->text,this->color);
-		break;
-	}
+	// switch(this->renderType){
+	// 	case SOLID:
+	// 		this->image = TTF_RenderText_Solid(this->font,this->text,this->color);
+	// 	break;
+	// 	case SHADED:
+	// 		this->image = TTF_RenderText_Shaded(this->font,this->text,this->color,this->shadedColor);
+	// 	break;
+	// 	case BLENDED:
+	// 		this->image = TTF_RenderText_Blended(this->font,this->text,this->color);
+	// 	break;
+	// }
 }
 
 // void Gui::setText(char* _text){

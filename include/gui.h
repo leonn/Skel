@@ -18,7 +18,7 @@ class Gui{
 
 	SDL_Rect box;
 
-	char* text;
+	char text[5];
 	
 	int fontsize;
 
