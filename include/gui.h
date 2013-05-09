@@ -4,9 +4,23 @@
 #include "SDL/SDL.h"
 #include "SDL/SDL_ttf.h"
 
-#define SOLID 1
-#define SHADED 2
-#define BLENDED 3
+#include <string>
+
+enum Color{
+	RED,
+	GREEN,
+	BLUE,
+	WHITE,
+	BLACK
+};
+
+enum RenderType{
+	SOLID,
+	SHADED,
+	BLENDED
+};
+
+using namespace std;
 
 class Gui{
 
@@ -18,14 +32,15 @@ class Gui{
 
 	SDL_Rect box;
 
-	char text[5];
+	string text;
 	
 	int fontsize;
 
-	int renderType;
+	RenderType renderType;
 
 public:
 	Gui();
+	Gui(char* _text, int _fontsize);
 	~Gui();
 
 	void draw();

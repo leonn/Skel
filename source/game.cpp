@@ -14,33 +14,24 @@ Game::Game(){
 	this->screen = SDL_SetVideoMode(SCREEN_W,SCREEN_H,SCREEN_BPP,SDL_SWSURFACE);
 	SDL_WM_SetCaption("Skel",NULL);
 
+	TTF_Init();
+
 	this->running = true;
 }
 
 Game::~Game(){
 	SDL_FreeSurface(this->screen);
+
+	TTF_Quit();
+	SDL_Quit();
 }
 
 void Game::run(){
 	//BLOCO DE TESTE de renderização de texto
 
-	// Gui* gui;
+	Gui* gui;
 	// gui = new Gui();
-	string text = "texto";
-	cout << text << endl;
-	SDL_Surface* textSurface;
-	SDL_Rect box;
-	box.x = 100;
-	box.y = 100;
-	box.w = 200;
-	box.h = 100;
-	SDL_Color _color = {0,0,0};
-	TTF_Font* font = TTF_OpenFont("UbuntuMono-B.ttf",20);
-	if (font == NULL)
-		cout << "failed" << endl;
-	textSurface = TTF_RenderText_Solid(font,text.c_str(),_color);
-	// textSurface = carregaImagem("data/botao_sair.png");
-	//FIM DO BLOCO DE TESTE
+	gui = new Gui("texto",40);
 
 	while(this->running){
 		//Events
@@ -52,9 +43,11 @@ void Game::run(){
 			}
 		}
 		//Logic
-		// gui->update();//teste
+		gui->update();//teste
+		
 		//Render
-		SDL_BlitSurface(textSurface,NULL,SDL_GetVideoSurface(),&box);
+		gui->draw();
+
 		SDL_Flip(screen);
 		//FPS control
 	}

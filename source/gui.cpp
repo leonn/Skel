@@ -7,23 +7,31 @@ Gui::Gui(){
 
 //TODO: Valores entrados pelo usuário
 //TODO: Criar contrutor genérico e construtor do usuário
-//TESTE
-	this->box.x = 100;
-	this->box.y = 100;
-	this->box.w = 200;
-	this->box.h = 100;
-	this->fontsize = 12;
-	SDL_Color _color = {0xff,0xff,0xff};
+	this->box.x = 10;
+	this->box.y = SDL_GetVideoSurface()->h/4 * 3;
+
+	this->fontsize = 40;
+	SDL_Color _color = {255,255,255,0};
 	this->color = _color;
-	// this->text = "teste";
-	sprintf(this->text,"%d",10); //escrevendo o texto
-	this->font = TTF_OpenFont("Arista.ttf",20);
-//FIM TESTE
+	this->text ="teste";
+	this->font = TTF_OpenFont("data/Arista.ttf",this->fontsize);
 
+	this->renderType = BLENDED;
+
+}
+
+Gui::Gui(char* _text, int _fontsize){
+
+	this->box.x = 10;
+	this->box.y = SDL_GetVideoSurface()->h/4 * 3;
+
+	SDL_Color _color = {255,255,255,0};
+	this->color = _color;
 	
+	this->fontsize = _fontsize;
+	this->font = TTF_OpenFont("data/Arista.ttf",this->fontsize);
 
-	this->renderType = SOLID;
-	this->image = TTF_RenderText_Solid(this->font,this->text,this->color);
+	this->text = _text;
 }
 
 Gui::~Gui(){
@@ -35,48 +43,49 @@ void Gui::draw(){
 }
 
 void Gui::update(){
-	// switch(this->renderType){
-	// 	case SOLID:
-	// 		this->image = TTF_RenderText_Solid(this->font,this->text,this->color);
-	// 	break;
-	// 	case SHADED:
-	// 		this->image = TTF_RenderText_Shaded(this->font,this->text,this->color,this->shadedColor);
-	// 	break;
-	// 	case BLENDED:
-	// 		this->image = TTF_RenderText_Blended(this->font,this->text,this->color);
-	// 	break;
-	// }
+	switch(this->renderType){
+		case SOLID:
+			this->image = TTF_RenderText_Solid(this->font,this->text.c_str(),this->color);
+		break;
+		case SHADED:
+			this->image = TTF_RenderText_Shaded(this->font,this->text.c_str(),this->color,this->shadedColor);
+		break;
+		case BLENDED:
+			this->image = TTF_RenderText_Blended(this->font,this->text.c_str(),this->color);
+		break;
+	}
 }
 
-// void Gui::setText(char* _text){
-// 	this->text = _text;
-// }
+void Gui::setText(char* _text){
+	this->text = _text;
+}
 
-// void Gui::setColor(int r, int g, int b){
-// 	this->color = {r,g,b,0};
-// }
+void Gui::setColor(int r, int g, int b){
+	this->color = {r,g,b,0};
+}
 
-// void Gui::setShadedColor(int r, int g, int b){
-// 	this->shadedColor = {r,g,b,0};	
-// }
+void Gui::setShadedColor(int r, int g, int b){
+	this->shadedColor = {r,g,b,0};	
+}
 
-// void Gui::setFontSize(int size){
-// 	this->fontsize = size;
-// }
+void Gui::setFontSize(int size){
+	this->fontsize = size;
+	this->font = TTF_OpenFont("data/Arista.ttf",this->fontsize);
+}
 
-// void Gui::setRenderType(int _renderType){
-// 	switch(_renderType){
-// 		case SOLID:
-// 			this->renderType = SOLID;
-// 		break;
-// 		case SHADED:
-// 			this->renderType = SHADED;
-// 		break;
-// 		case BLENDED:
-// 			this->renderType = BLENDED;
-// 		break;
-// 		default:
-// 			cout << "Error: unknow render type." << endl;
+void Gui::setRenderType(int _renderType){
+	switch(_renderType){
+		case SOLID:
+			this->renderType = SOLID;
+		break;
+		case SHADED:
+			this->renderType = SHADED;
+		break;
+		case BLENDED:
+			this->renderType = BLENDED;
+		break;
+		default:
+			cout << "Error: unknow render type." << endl;
 
-// 	}
-// }
+	}
+}
