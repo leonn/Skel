@@ -21,21 +21,12 @@ Game::Game(){
 
 	this->screen = SDL_SetVideoMode(SCREEN_W,SCREEN_H,SCREEN_BPP,SDL_SWSURFACE);
 	SDL_WM_SetCaption("Skel",NULL);
-<<<<<<< HEAD
-
 	TTF_Init();
-=======
->>>>>>> 8a5dc4fa1295ec2338ec9838a39721a9403158a0
-
 	this->running = true;
 }
 
 Game::~Game(){
 	SDL_FreeSurface(this->screen);
-<<<<<<< HEAD
-
-=======
->>>>>>> 8a5dc4fa1295ec2338ec9838a39721a9403158a0
 	TTF_Quit();
 	SDL_Quit();
 }
