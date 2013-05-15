@@ -47,8 +47,8 @@ public:
 	void update();
 
 	void setText(char* _text);
-	void setColor(int r, int g, int b);
-	void setShadedColor(int r, int g, int b);
+	void setColor(Uint8 r, Uint8 g, Uint8 b);
+	void setShadedColor(Uint8 r, Uint8 g, Uint8 b);
 	void setFontSize(int size);
 	void setRenderType(int _renderType);
 

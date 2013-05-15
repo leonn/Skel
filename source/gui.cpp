@@ -60,11 +60,11 @@ void Gui::setText(char* _text){
 	this->text = _text;
 }
 
-void Gui::setColor(int r, int g, int b){
+void Gui::setColor(Uint8 r, Uint8 g, Uint8 b){
 	this->color = {r,g,b,0};
 }
 
-void Gui::setShadedColor(int r, int g, int b){
+void Gui::setShadedColor(Uint8 r, Uint8 g, Uint8 b){
 	this->shadedColor = {r,g,b,0};	
 }
 

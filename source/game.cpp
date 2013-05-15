@@ -45,6 +45,14 @@ void Game::run(){
 				case SDL_QUIT:
 					this->running = false;
 				break;
+				case SDL_KEYDOWN:
+                    switch (events.key.keysym.sym) {
+                    	case SDLK_ESCAPE:
+                        	this->running = false;
+                        break;
+                        default:
+                        break;
+                    }
 			}
 		}
 		//Logic
