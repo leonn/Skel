@@ -1,5 +1,5 @@
-#ifndef GUI_H
-#define GUI_H
+#ifndef TEXT_H
+#define TEXT_H
 
 #include "SDL/SDL.h"
 #include "SDL/SDL_ttf.h"
@@ -22,7 +22,7 @@ enum RenderType{
 
 using namespace std;
 
-class Gui{
+class Text{
 
 	TTF_Font* font;
 
@@ -39,17 +39,17 @@ class Gui{
 	RenderType renderType;
 
 public:
-	Gui();
-	Gui(char* _text, int _fontsize);
-	~Gui();
+	Text(string _text, int _fontsize, int x, int y);
+	~Text();
 
 	void draw();
 	void update();
 
-	void setText(char* _text);
-	void setColor(Uint8 r, Uint8 g, Uint8 b);
-	void setShadedColor(Uint8 r, Uint8 g, Uint8 b);
+	void setText(string _text);
+	void setColor(Color _color);
+	void setShadedColor(Color _color);
 	void setFontSize(int size);
+	void setFont(string _fontpath);
 	void setRenderType(int _renderType);
 
 };
