@@ -3,7 +3,7 @@
 #include <iostream>
 #include <string>
 //TESTE
-#include "gui.h"
+#include "text.h"
 #include "SDL/SDL_ttf.h"
 
 
@@ -34,9 +34,10 @@ Game::~Game(){
 void Game::run(){
 	//BLOCO DE TESTE de renderização de texto
 
-	Gui* gui;
-	// gui = new Gui();
-	gui = new Gui("texto",40);
+	Text* text;
+	// text = new Text();
+	text = new Text("teste", 40, 0, 0);
+	text->setColor(RED);
 
 	while(this->running){
 		//Events
@@ -56,10 +57,10 @@ void Game::run(){
 			}
 		}
 		//Logic
-		gui->update();//teste
+		text->update();//teste
 		
 		//Render
-		gui->draw();
+		text->draw();
 
 		SDL_Flip(screen);
 		//FPS control
