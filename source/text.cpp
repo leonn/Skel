@@ -9,6 +9,7 @@ Text::Text(string _text, int _fontsize, int x, int y){
 
 	SDL_Color _color = {0,0,0,0};
 	this->color = _color;
+	this->shadedColor = _color;
 	
 	this->fontsize = _fontsize;
 	this->font = TTF_OpenFont("data/Arista.ttf",this->fontsize);
@@ -88,6 +89,7 @@ void Text::setFontSize(int size){
 }
 
 void Text::setFont(string _fontpath){
+	//TODO: tratamento de erro
 	this->font = TTF_OpenFont(_fontpath.c_str(),this->fontsize);
 }
 

@@ -2,12 +2,7 @@
 #include "util.h"
 #include <iostream>
 #include <string>
-//TESTE
 #include "text.h"
-#include "SDL/SDL_ttf.h"
-
-
-using namespace std;
 
 #include <iostream>
 using namespace std;
@@ -32,12 +27,6 @@ Game::~Game(){
 }
 
 void Game::run(){
-	//BLOCO DE TESTE de renderização de texto
-
-	Text* text;
-	// text = new Text();
-	text = new Text("teste", 40, 0, 0);
-	text->setColor(RED);
 
 	while(this->running){
 		//Events
@@ -51,18 +40,15 @@ void Game::run(){
                     	case SDLK_ESCAPE:
                         	this->running = false;
                         break;
-                        default:
-                        break;
+                        default:;
                     }
 			}
 		}
 		//Logic
-		text->update();//teste
 		
 		//Render
-		text->draw();
-
 		SDL_Flip(screen);
+		
 		//FPS control
 	}
 }
