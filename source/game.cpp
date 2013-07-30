@@ -28,7 +28,11 @@ Game::~Game(){
 
 void Game::run(){
 
+	//Initializing timer
+	this->delta.start();
+	
 	while(this->running){
+
 		this->start = SDL_GetTicks();
 		//Events
 		while(SDL_PollEvent(&this->events)){
@@ -47,6 +51,7 @@ void Game::run(){
 		}
 		//Logic
 		
+		this->delta.start(); // Reinicializing the timer
 		//Render
 		SDL_Flip(screen);
 		
