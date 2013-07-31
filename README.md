@@ -4,7 +4,7 @@ Default Skeleton for projects with C/C++ and SDL
 
 Authors
 -------
-	Tiago Pereira <master>
+	Tiago Pereira 
 	Leonn Ferreira
 
 Changelog:
@@ -12,5 +12,6 @@ Changelog:
 	- 0.1 -
 		- First version
 	- 0.2 -
+		- Text  support
 
 ---------
