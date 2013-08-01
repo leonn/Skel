@@ -3,7 +3,7 @@
 
 class Entity{
 
-	SDL_Image* image;
+	SDL_Surface* image;
 	SDL_Rect box;
 
 public:
