@@ -27,11 +27,11 @@ class Timer
     void unpause();
 
     //Gets the timer's time
-    int get_ticks();
+    int getTicks();
 
     //Checks the status of the timer
-    bool is_started();
-    bool is_paused();
+    bool isStarted();
+    bool isPaused();
 };
 
 #endif
