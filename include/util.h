@@ -5,6 +5,10 @@
 #include <SDL/SDL_image.h>
 #include <iostream>
 
+//Flip flags
+#define  FLIP_VERTICAL  1
+#define  FLIP_HORIZONTAL  2
+
 using namespace std;
 
 SDL_Surface * loadImage(const char* img);
