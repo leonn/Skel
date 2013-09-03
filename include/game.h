@@ -1,9 +1,9 @@
 #ifndef GAME_H
 #define GAME_H
 
-#include "SDL/SDL.h"
-#include "SDL/SDL_image.h"
-#include "SDL/SDL_ttf.h"
+#include "SDL2/SDL.h"
+#include "SDL2/SDL_image.h"
+#include "SDL2/SDL_ttf.h"
 #include "timer.h"
 
 #define SCREEN_W 800
@@ -14,9 +14,10 @@
 
 class Game{
 
+	SDL_Window* window; //The game window
 	SDL_Surface* screen; //The game screen
 	SDL_Event events; //The input events
-
+	SDL_Renderer *renderer;
 	Timer delta;
 	Uint32 start; //FPS control
 

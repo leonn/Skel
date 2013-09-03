@@ -27,7 +27,7 @@ Text::~Text(){
 }
 
 void Text::draw(){
-	SDL_BlitSurface(this->image,NULL,SDL_GetVideoSurface(),&this->box);
+	SDL_BlitSurface(this->image,NULL,SDL_GetWindowSurface(SDL_GetWindowFromID(0)),&this->box);
 }
 
 void Text::update(){

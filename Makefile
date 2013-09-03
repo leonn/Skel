@@ -43,7 +43,7 @@ export INCLUDE	:=	$(foreach dir,$(INCLUDES), -I$(CURDIR)/$(dir)) \
 CPPFLAGS=-Wall -g -W -pedantic -ansi -std=c++0x
 
 # Linking flags
-LIBS	:=	-lSDL -lSDL_image -lSDL_mixer -lSDL_ttf   
+LIBS	:=	-lSDL2 -lSDL2_image -lSDL2_mixer -lSDL2_ttf   
 LDFLAGS= $(LIBS)
 
 $(BUILD)/%.o:$(SOURCES)/%.cpp
