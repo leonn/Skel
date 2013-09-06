@@ -16,6 +16,7 @@ class Game{
 
 	SDL_Window* window; //The game window
 	SDL_Surface* screen; //The game screen
+	SDL_Surface* image; //The game screen
 	SDL_Event events; //The input events
 	SDL_Renderer *renderer;
 	Timer delta;

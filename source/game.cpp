@@ -15,10 +15,11 @@ Game::Game(){
 		cout << "TTF not initialized." << endl;
  	
 	this->window = SDL_CreateWindow("Skel", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_W, SCREEN_H, SDL_WINDOW_SHOWN |SDL_WINDOW_RESIZABLE);//SCREEN_W,SCREEN_H,SCREEN_BPP,SDL_SWSURFACE);
-	SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "linear");
-	renderer = SDL_CreateRenderer(window, -1,SDL_RENDERER_ACCELERATED);
+
+//	renderer = SDL_CreateRenderer(window, -1,SDL_RENDERER_ACCELERATED);
 	this->screen = SDL_GetWindowSurface(window);
 	TTF_Init();
+	this->image=loadImage("data/image/skel.jpg");
 	this->running = true;
 }
 
@@ -55,8 +56,11 @@ void Game::run(){
 		
 		this->delta.start(); // Reinicializing the timer
 		//Render
-		SDL_RenderPresent(renderer);
-		
+		SDL_BlitSurface( image, NULL, screen, NULL );
+		//SDL_RenderPresent(renderer);
+		//Update the surface
+		//Apply the image
+		SDL_UpdateWindowSurface(window );
 		//FPS control
 		if(1000/FPS > SDL_GetTicks() - this->start)
 			SDL_Delay(1000/FPS - (SDL_GetTicks() - this->start));

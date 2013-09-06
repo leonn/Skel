@@ -45,7 +45,6 @@ void put_pixel32( SDL_Surface *surface, int x, int y, Uint32 pixel ){
     pixels[ ( y * surface->w ) + x ] = pixel;
 }
 
-
 SDL_Surface *flipImage( SDL_Surface *surface, int flags ){
     //Pointer to the soon to be flipped surface
     SDL_Surface *flipped = NULL;
